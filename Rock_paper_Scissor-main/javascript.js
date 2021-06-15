@@ -1,21 +1,35 @@
+   
+ // Counter result
     var i=0;
 	var y=0; 
 	var x=0;
 	var z= 0;	
-	
-	
 
-function setTimer(second) {
+	let btnRock = document.getElementById('btn-rock');
+	let btnSissors=document.getElementById('btn-sissors');
+	let btnPapper= document.getElementById('btn-papper');
+	let roundP1= document.getElementById("round1-P1");
+	let roundP2 = document.getElementById("round1-P2");
+	let round2P1 = document.getElementById("round2-P1");
+	let round2P2 = document.getElementById("round2-P2");
+	let player2icon= document.getElementById("player2-icon");
+	let player1icon =document.getElementById("player1-icon");
+	let player2result =document.getElementById("player2-resualt");
+	let player1result= document.getElementById("player1-resualt");
+	
+	
+// set timer
+   function setTimer(second) {
     
 	
     
-    document.getElementById('btn-rock').disabled = false;
-    document.getElementById('btn-sissors').disabled = false;
-    document.getElementById('btn-papper').disabled = false;    
+    btnRock.disabled = false;
+    btnSissors.disabled = false;
+    btnPapper.disabled = false;    
 	
     var timeleft=second;
 
-
+   // Play randomly
 	var RandomButtons = [
     'rock',
     'sissors',
@@ -26,9 +40,9 @@ function setTimer(second) {
      setTimer = setInterval(()=>{
     if(timeleft <=0){
         document.getElementById('timer').innerHTML='Shoot!!'; 
-		document.getElementById('btn-rock').disabled = true;
-		document.getElementById('btn-sissors').disabled = true;
-		document.getElementById('btn-papper').disabled = true;   
+		btnRock.disabled = true;
+		btnSissors.disabled = true;
+		btnPapper.disabled = true;   
 		clearInterval(setTimer)
 		
     }else{
@@ -57,53 +71,53 @@ document.getElementById("btn-rock").addEventListener("click", function(event){
 	
 	selectedButtonP2=RandomButtons[selectedButtonP2]; 
 	
-	document.getElementById("player1-icon").className = "float-right   player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-rock  fs-2"
+	player1icon.className = "float-right   player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-rock  fs-2"
     
     if(selectedButtonP2=="papper"){
 		if(i==2 || y==2  ){
 			z++;
-			document.getElementById("round2-P1").innerHTML=x;
-			document.getElementById("round2-P2").innerHTML=z;
+			round2P1.innerHTML=x;
+			round2P2.innerHTML=z;
 		}
 		
 	     else { y++;
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
 		
 		}
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-paper fs-2"
-		document.getElementById("player2-resualt").innerHTML="Winner"
-		document.getElementById("player1-resualt").innerHTML="Loser"
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-paper fs-2"
+		player2result.innerHTML="Winner"
+		player1result.innerHTML="Loser"
         document.getElementById("chatt").innerHTML="Hard Luck"
 		document.getElementById("graham-img").src = "img/loser.png";
 	
 }
 	else if( selectedButtonP2=="rock"){
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-rock fs-2"
-        document.getElementById("player2-resualt").innerHTML=""
-		document.getElementById("player1-resualt").innerHTML=""
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-rock fs-2"
+        player2result.innerHTML=""
+		player1result.innerHTML=""
 		document.getElementById("chatt").innerHTML="Please try again";
 		document.getElementById("graham-img").src = "img/hello.png"
 		
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
-		document.getElementById("round2-P1").innerHTML=x;
-		document.getElementById("round2-P2").innerHTML=z;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
+		round2P1.innerHTML=x;
+		round2P2.innerHTML=z;
 		
 	}
 	else if( selectedButtonP2=="sissors"){
 		if(i==2 || y==2 ){
 			x++;
-			document.getElementById("round2-P1").innerHTML=x;
-			document.getElementById("round2-P2").innerHTML=z;
+			round2P1.innerHTML=x;
+			round2P2.innerHTML=z;
 		}
 		else {i++;
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
 	    }
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors fs-2"
-		document.getElementById("player2-resualt").innerHTML="Loser"
-		document.getElementById("player1-resualt").innerHTML="Winner"
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors fs-2"
+		player2result.innerHTML="Loser"
+		player1result.innerHTML="Winner"
 		
 		document.getElementById("chatt").innerHTML="You Won";
 		document.getElementById("graham-img").src = "img/winner.png"
@@ -118,9 +132,9 @@ document.getElementById("btn-rock").addEventListener("click", function(event){
 
 	if (x==2 || z ==2){
 		
-		document.getElementById('btn-rock').disabled = true;
-		document.getElementById('btn-sissors').disabled = true;
-		document.getElementById('btn-papper').disabled = true;
+		btnRock.disabled = true;
+		btnSissors.disabled = true;
+		btnPapper.disabled = true;
 
 	}
 	
@@ -137,51 +151,51 @@ document.getElementById("btn-sissors").addEventListener("click",function(event){
 	
 	selectedButtonP2=RandomButtons[selectedButtonP2];
 	
-	document.getElementById("player1-icon").className = "float-right   player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors  fs-2"
+	player1icon.className = "float-right   player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors  fs-2"
     
     if(selectedButtonP2=="sissors"){
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
-		document.getElementById("round2-P1").innerHTML=x;
-		document.getElementById("round2-P2").innerHTML=z;
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors fs-2"
-        document.getElementById("player2-resualt").innerHTML=""
-		document.getElementById("player1-resualt").innerHTML=""
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
+		round2P1.innerHTML=x;
+		round2P2.innerHTML=z;
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors fs-2"
+        player2result.innerHTML=""
+		player1result.innerHTML=""
 		document.getElementById("chatt").innerHTML="Please Try Again"
 		document.getElementById("graham-img").src = "img/hello.png";
 	}
 	else if( selectedButtonP2=="rock"){
 		if(i==2 || y==2  ){
 			z++;
-			document.getElementById("round2-P1").innerHTML=x;
-			document.getElementById("round2-P2").innerHTML=z;
+			round2P1.innerHTML=x;
+			round2P2.innerHTML=z;
 		}
 		
 	     else { y++;
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
 		
 		}
 		
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-rock fs-2"
-        document.getElementById("player2-resualt").innerHTML="Winner"
-		document.getElementById("player1-resualt").innerHTML="Loser"
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-rock fs-2"
+        player2result.innerHTML="Winner"
+		player1result.innerHTML="Loser"
 		document.getElementById("chatt").innerHTML="Hard Luck"
 		document.getElementById("graham-img").src = "img/loser.png";
 	}
 	else if( selectedButtonP2=="papper"){
 		if(i==2 || y==2 ){
 			x++;
-			document.getElementById("round2-P1").innerHTML=x;
-			document.getElementById("round2-P2").innerHTML=z;
+			round2P1.innerHTML=x;
+			round2P2.innerHTML=z;
 		}
 		else {i++;
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
 	    }
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-paper fs-2"
-        document.getElementById("player2-resualt").innerHTML="Loser"
-		document.getElementById("player1-resualt").innerHTML="Winner"
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-paper fs-2"
+        player2result.innerHTML="Loser"
+		player1result.innerHTML="Winner"
 		document.getElementById("chatt").innerHTML="You Won"
 		document.getElementById("graham-img").src = "img/winner.png";
 		
@@ -194,9 +208,9 @@ document.getElementById("btn-sissors").addEventListener("click",function(event){
 
 		if (x==2 || z ==2){
 		
-			document.getElementById('btn-rock').disabled = true;
-			document.getElementById('btn-sissors').disabled = true;
-			document.getElementById('btn-papper').disabled = true;
+			btnRock.disabled = true;
+			btnSissors.disabled = true;
+			btnPapper.disabled = true;
 	
 		}
     
@@ -209,48 +223,48 @@ document.getElementById("btn-papper").addEventListener("click", function(event){
 	
 	selectedButtonP2=RandomButtons[selectedButtonP2];
 
-	document.getElementById("player1-icon").className = "float-right   player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-paper  fs-2"
+	player1icon.className = "float-right   player-icon text-light fs-1 p-3 rounded-circle bg-secondary  fas fa-hand-paper  fs-2"
   
 	if(selectedButtonP2=="papper"){
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-paper fs-2"
-		document.getElementById("player2-resualt").innerHTML=""
-		document.getElementById("player1-resualt").innerHTML=""
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-paper fs-2"
+		player2result.innerHTML=""
+		player1result.innerHTML=""
 		document.getElementById("chatt").innerHTML="Please Try Again"
 		document.getElementById("graham-img").src = "img/hello.png";
 	}
 	else if( selectedButtonP2=="rock"){
 		if(i==2 || y==2 ){
 			x++;
-			document.getElementById("round2-P1").innerHTML=x;
-			document.getElementById("round2-P2").innerHTML=z;
+			round2P1.innerHTML=x;
+			round2P2.innerHTML=z;
 		}
 		else {i++;
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
 	    }
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-rock fs-2"
-		document.getElementById("player2-resualt").innerHTML="Loser"
-		document.getElementById("player1-resualt").innerHTML="Winner"
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary fas fa-hand-rock fs-2"
+		player2result.innerHTML="Loser"
+		player1result.innerHTML="Winner"
 		document.getElementById("chatt").innerHTML="You Won"
 		document.getElementById("graham-img").src = "img/winner.png";;
 	}
 	else if( selectedButtonP2=="sissors"){
 		if(i==2 || y==2  ){
 			z++;
-			document.getElementById("round2-P1").innerHTML=x;
-			document.getElementById("round2-P2").innerHTML=z;
+			round2P1.innerHTML=x;
+			round2P2.innerHTML=z;
 		}
 		
 	     else { y++;
-		document.getElementById("round1-P1").innerHTML=i;
-		document.getElementById("round1-P2").innerHTML=y;
+		roundP1.innerHTML=i;
+		roundP2.innerHTML=y;
 		
 		}
 
 
-		document.getElementById("player2-icon").className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors fs-2"
-		document.getElementById("player2-resualt").innerHTML="Winner"
-		document.getElementById("player1-resualt").innerHTML="Loser"
+		player2icon.className = "player-icon text-light fs-1 p-3 rounded-circle bg-secondary sissorsIcon fas fa-hand-scissors fs-2"
+		player2result.innerHTML="Winner"
+		player1result.innerHTML="Loser"
 		document.getElementById("chatt").innerHTML="Hard Luck"
 		document.getElementById("graham-img").src = "img/loser.png";
 	}
@@ -264,9 +278,9 @@ document.getElementById("btn-papper").addEventListener("click", function(event){
 		
 		if (x==2 || z ==2){
 		
-			document.getElementById('btn-rock').disabled = true;
-			document.getElementById('btn-sissors').disabled = true;
-			document.getElementById('btn-papper').disabled = true;
+			btnRock.disabled = true;
+			btnSissors.disabled = true;
+			btnPapper.disabled = true;
 	
 		}
 });
